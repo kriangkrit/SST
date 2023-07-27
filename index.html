@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en" style="background-image: url(bg.jpg); background-repeat: no-repeat; background-size: 100%;">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SST Information</title>
+    <!-- Web icon -->
+    <link rel="icon" type="image/x-icon" href="https://cdn-icons-png.flaticon.com/128/1011/1011528.png">
+    <!-- Add Chart.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <!-- Add bulma css -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Add Material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Section 1 Header (contains title) -->
+    <div id="box1" style="text-align: center; margin-top: 2%; margin-bottom: 2%; ">
+        <h1 style="font-size: 2rem; color: aliceblue;">ข้อมูลอุณหภูมิน้ำทะเลระหว่างปี 2002 - 2023</h1>
+    </div>
+
+    <!-- Section 2 Body (contain overview chart) -->
+    <div id="box2" style="text-align: center;">
+        <img src="G1.jpg" style="width: 50%; height: auto; border-radius: 10px;">
+    </div>
+
+    <!-- Section 3 Sub-body (contain dropdown menu for each year detail) -->
+    <div id="box3" style="display: flex; flex-direction: row; justify-content: center; margin-top: 2%;">
+        <p style="font-size: 1.2rem; margin-right: 10px; margin-top: 0.3%; color: rgb(255, 255, 255);">รายละเอียดข้อมูลรายปี</p>
+        <!-- Dropdown element -->
+        <div class="dropdown is-active">
+            <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu" style="width: 150px; border-radius: 20px; justify-content: space-between;">
+                    <span>เลือกปี</span>
+                    <span style="margin-top: 2%;">
+                        <i class="material-icons md-48">expand_more</i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu" style="border-radius: 30px;">
+                <div class="dropdown-content" id="my-menu" style="height: 300px; overflow-y: scroll;">
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2023();">
+                        2023
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2022();">
+                        2022
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2021();">
+                        2021
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2020();">
+                        2020
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2019();">
+                        2019
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2018();">
+                        2018
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2017();">
+                        2017
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2016();">
+                        2016
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2015();">
+                        2015
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2014();">
+                        2014
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2013();">
+                        2013
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2012();">
+                        2012
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2011();">
+                        2011
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2010();">
+                        2010
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2009();">
+                        2009
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2008();">
+                        2008
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2007();">
+                        2007
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2006();">
+                        2006
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2005();">
+                        2005
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2004();">
+                        2004
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2003();">
+                        2003
+                    </a>
+                    <a class="dropdown-item" id="my-btn" onclick="openPopup2002();">
+                        2002
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div id="modal-js-example" class="modal">
+            <div class="modal-background"></div>
+            <div class="modal-card" style="width: 80%; height: 45%; border-radius: 20px;">
+                <header class="modal-card-head">
+                    <p class="modal-card-title" id="my-title">Modal title</p>
+                    <button class="delete" aria-label="close" onclick="closePopup();"></button>
+                </header>
+                <section class="modal-card-body" style="display: flex; flex-direction: row; justify-content: center; padding-top: 2%;">
+                    <div style="width: 30%; height: 30%; margin-inline: 2%; justify-content: center; text-align: center; ">
+                        <img id="one" src="" style="width: 100%; height: auto; border-radius: 10px;">
+                        <strong>Min</strong>
+                    </div>
+                    <div style="width: 30%; height: 30%; margin-inline: 2%; justify-content: center; text-align: center;">
+                        <img id="two" src="" style="width: 100%; height: auto; border-radius: 10px;">
+                        <strong>Max</strong>
+                    </div>
+                    <div style="width: 30%; height: 30%; margin-inline: 2%; justify-content: center; text-align: center;">
+                        <img id="three" src="" style="width: 100%; height: auto; border-radius: 10px;">
+                        <strong>Mean</strong>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Dropdown trigger function
+        const dropdown =
+            document.querySelector('.dropdown');
+        const active =
+            document.querySelector('.is-active')
+        dropdown.classList.remove('is-active')
+        document.body.addEventListener('click', function () {
+            if (active) {
+                dropdown.classList.remove('is-active')
+            } else {
+                dropdown.classList.add('is-active')
+            }
+        })
+        dropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+            this.classList.toggle('is-active');
+        });
+
+        function closePopup() {
+            var popup = document.getElementById('modal-js-example')
+            popup.style.display = 'none'
+        }
+
+        function openPopup2023() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2023'
+            imgMin.src = 'G1.jpg'
+            imgMax.src = 'G1.jpg'
+            imgMean.src = 'G1.jpg'
+        }
+
+        function openPopup2022() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2022'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sea.jpg'
+            imgMean.src = 'images/sample.jpg'
+        }
+
+        function openPopup2021() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2021'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2020() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2020'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2019() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2019'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2018() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2018'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2017() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2017'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2016() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2016'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2015() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2015'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2014() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2014'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2013() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2013'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2012() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2012'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2011() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2011'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2010() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2010'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2009() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2009'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2008() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2008'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2007() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2007'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2006() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2006'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2005() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2005'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2004() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2004'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2003() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2003'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+        function openPopup2002() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2002'
+            imgMin.src = 'images/sample.jpg'
+            imgMax.src = 'images/sample.jpg'
+            imgMean.src = 'images/sea.jpg'
+        }
+
+
+    </script>
+</body>
+
+</html>
