@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en" style="background-image: url(bg.jpg); background-repeat: no-repeat; background-size: 100%;">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My SST</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <style>
+    .klang {
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+      width: 40%;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box1" style="text-align: center; margin-top: 2%; margin-bottom: 2%; ;">
+    <H1 style="font-size: 2rem; color: aliceblue;">ข้อมูลอุณหภูมิน้ำทะเลระหว่างปี 2002 - 2023</H1>
+  </div>
+
+  <div id="box2" style="text-align: center;">
+    <img src="G1.jpg" style="width: 50%;">
+  </div>
+
+  <div id="box3" style="display: flex; flex-direction: row; text-align: center; justify-items: center; margin-top: 2%">
+    <div class="klang">
+      <p style="font-size: 1.5rem; color: aliceblue; margin-top: 0.5%; margin-bottom: 3%;">รายละเอียดข้อมูลรายปี</p>
+
+      <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+        <div class="btn-group me-2" role="group" aria-label="First group">
+          <button type="button" class="btn btn-primary" onclick="openPopup2566();">2566</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2565();">2565</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2564();">2564</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2563();">2563</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2562();">2562</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2561();">2561</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2560();">2560</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2559();">2559</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2558();">2558</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2557();">2557</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2556();">2556</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2555();">2555</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2554();">2554</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2553();">2553</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2552();">2552</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2551();">2551</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2550();">2550</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2549();">2549</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2548();">2548</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2547();">2547</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2546();">2546</button>
+          <button type="button" class="btn btn-primary" onclick="openPopup2545();">2545</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="modal-js-example" class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-card" style="width: 95%; height: 60%; border-radius: 20px;">
+        <header class="modal-card-head">
+            <p class="modal-card-title" id="my-title">Modal title</p>
+            <button class="delete" aria-label="close" onclick="closePopup();"></button>
+        </header>
+        <section class="modal-card-body" style="display: flex; flex-direction: row; justify-content: center; padding-top: 6%;">
+            <div style="width: 50%; height: 50%; margin-inline: 0.3%; justify-content: center; text-align: center;">
+                <img id="one" src="" style="width: 300%; height: 140%;">
+                <strong>Min</strong>
+            </div>
+            <div style="width: 50%; height: 50%; margin-inline: 0.3%; justify-content: center; text-align: center;">
+                <img id="two" src="" style="width: 300%; height: 140%;">
+                <strong>Max</strong>
+            </div>
+            <div style="width: 50%; height: 50%; margin-inline: 0.3%; justify-content: center; text-align: center;">
+                <img id="three" src="" style="width: 300%; height: 140%;">
+                <strong>Mean</strong>
+            </div>
+        </section>
+    </div>
+</div>
+  <script>
+    // Dropdown trigger function
+    const dropdown =
+            document.querySelector('.dropdown');
+        const active =
+            document.querySelector('.is-active')
+        dropdown.classList.remove('is-active')
+        document.body.addEventListener('click', function () {
+            if (active) {
+                dropdown.classList.remove('is-active')
+            } else {
+                dropdown.classList.add('is-active')
+            }
+        })
+        dropdown.addEventListener('click', function (event) {
+            event.stopPropagation();
+            this.classList.toggle('is-active');
+        });
+
+        function closePopup() {
+            var popup = document.getElementById('modal-js-example')
+            popup.style.display = 'none'
+        }
+
+        function openPopup2566() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2023'
+            imgMin.src = 'SST_graph/2566/SST_Min_2023.png'
+            imgMax.src = 'SST_graph/2566/SST_Max_2023.png'
+            imgMean.src = 'SST_graph/2566/SST_Mean_2023.png'
+        }
+
+        function openPopup2565() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2022'
+            imgMin.src = 'SST_graph/2565/SST_Min_2022.png'
+            imgMax.src = 'SST_graph/2565/SST_Max_2022.png'
+            imgMean.src = 'SST_graph/2565/SST_Mean_2022.png'
+        }
+
+        function openPopup2564() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2021'
+            imgMin.src = 'SST_graph/2564/SST_Min_2021.png'
+            imgMax.src = 'SST_graph/2564/SST_Max_2021.png'
+            imgMean.src = 'SST_graph/2564/SST_Mean_2021.png'
+        }
+
+        function openPopup2563() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2020'
+            imgMin.src = 'SST_graph/2563/SST_Min_2020.png'
+            imgMax.src = 'SST_graph/2563/SST_Max_2020.png'
+            imgMean.src = 'SST_graph/2563/SST_Mean_2020.png'
+        }
+
+        function openPopup2562() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2019'
+            imgMin.src = 'SST_graph/2562/SST_Min_2019.png'
+            imgMax.src = 'SST_graph/2562/SST_Max_2019.png'
+            imgMean.src = 'SST_graph/2562/SST_Mean_2019.png'
+        }
+
+        function openPopup2561() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2018'
+            imgMin.src = 'SST_graph/2561/SST_Min_2018.png'
+            imgMax.src = 'SST_graph/2561/SST_Max_2018.png'
+            imgMean.src = 'SST_graph/2561/SST_Mean_2018.png'
+        }
+
+        function openPopup2560() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2017'
+            imgMin.src = 'SST_graph/2560/SST_Min_2017.png'
+            imgMax.src = 'SST_graph/2560/SST_Max_2017.png'
+            imgMean.src = 'SST_graph/2560/SST_Mean_2017.png'
+        }
+
+        function openPopup2559() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2016'
+            imgMin.src = 'SST_graph/2559/SST_Min_2016.png'
+            imgMax.src = 'SST_graph/2559/SST_Max_2016.png'
+            imgMean.src = 'SST_graph/2559/SST_Mean_2016.png'
+        }
+
+        function openPopup2558() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2015'
+            imgMin.src = 'SST_graph/2558/SST_Min_2015.png'
+            imgMax.src = 'SST_graph/2558/SST_Max_2015.png'
+            imgMean.src = 'SST_graph/2558/SST_Mean_2015.png'
+        }
+
+        function openPopup2557() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2014'
+            imgMin.src = 'SST_graph/2557/SST_Min_2014.png'
+            imgMax.src = 'SST_graph/2557/SST_Max_2014.png'
+            imgMean.src = 'SST_graph/2557/SST_Mean_2014.png'
+        }
+
+        function openPopup2556() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2013'
+            imgMin.src = 'SST_graph/2556/SST_Min_2013.png'
+            imgMax.src = 'SST_graph/2556/SST_Max_2013.png'
+            imgMean.src = 'SST_graph/2556/SST_Mean_2013.png'
+        }
+
+        function openPopup2555() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2012'
+            imgMin.src = 'SST_graph/2555/SST_Min_2012.png'
+            imgMax.src = 'SST_graph/2555/SST_Max_2012.png'
+            imgMean.src = 'SST_graph/2555/SST_Mean_2012.png'
+        }
+
+        function openPopup2554() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2011'
+            imgMin.src = 'SST_graph/2554/SST_Min_2011.png'
+            imgMax.src = 'SST_graph/2554/SST_Max_2011.png'
+            imgMean.src = 'SST_graph/2554/SST_Mean_2011.png'
+        }
+
+        function openPopup2553() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2010'
+            imgMin.src = 'SST_graph/2553/SST_Min_2010.png'
+            imgMax.src = 'SST_graph/2553/SST_Max_2010.png'
+            imgMean.src = 'SST_graph/2553/SST_Mean_2010.png'
+        }
+
+        function openPopup2552() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2009'
+            imgMin.src = 'SST_graph/2552/SST_Min_2009.png'
+            imgMax.src = 'SST_graph/2552/SST_Max_2009.png'
+            imgMean.src = 'SST_graph/2552/SST_Mean_2009.png'
+        }
+
+        function openPopup2551() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2008'
+            imgMin.src = 'SST_graph/2551/SST_Min_2008.png'
+            imgMax.src = 'SST_graph/2551/SST_Max_2008.png'
+            imgMean.src = 'SST_graph/2551/SST_Mean_2008.png'
+        }
+
+        function openPopup2550() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2007'
+            imgMin.src = 'SST_graph/2550/SST_Min_2007.png'
+            imgMax.src = 'SST_graph/2550/SST_Max_2007.png'
+            imgMean.src = 'SST_graph/2550/SST_Mean_2007.png'
+        }
+
+        function openPopup2549() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2006'
+            imgMin.src = 'SST_graph/2549/SST_Min_2006.png'
+            imgMax.src = 'SST_graph/2549/SST_Max_2006.png'
+            imgMean.src = 'SST_graph/2549/SST_Mean_2006.png'
+        }
+
+        function openPopup2548() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2005'
+            imgMin.src = 'SST_graph/2548/SST_Min_2005.png'
+            imgMax.src = 'SST_graph/2548/SST_Max_2005.png'
+            imgMean.src = 'SST_graph/2548/SST_Mean_2005.png'
+        }
+
+        function openPopup2547() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2004'
+            imgMin.src = 'SST_graph/2547/SST_Min_2004.png'
+            imgMax.src = 'SST_graph/2547/SST_Max_2004.png'
+            imgMean.src = 'SST_graph/2547/SST_Mean_2004.png'
+        }
+
+        function openPopup2546() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2003'
+            imgMin.src = 'SST_graph/2546/SST_Min_2003.png'
+            imgMax.src = 'SST_graph/2546/SST_Max_2003.png'
+            imgMean.src = 'SST_graph/2546/SST_Mean_2003.png'
+        }
+
+        function openPopup2545() {
+            var popup = document.getElementById('modal-js-example')
+            var title = document.getElementById('my-title')
+            var imgMin = document.getElementById('one')
+            var imgMax = document.getElementById('two')
+            var imgMean = document.getElementById('three')
+
+            popup.style.display = 'flex'
+            title.innerHTML = 'SST 2002'
+            imgMin.src = 'SST_graph/2545/SST_Min_2002.png'
+            imgMax.src = 'SST_graph/2545/SST_Max_2002.png'
+            imgMean.src = 'SST_graph/2545/SST_Mean_2002.png'
+        }
+   
+  </script>
+</body>
+
+</html>

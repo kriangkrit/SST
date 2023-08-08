@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sst</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    
+</head>
+
+<body>
+    <div id="box1">
+        <H1>อุณหภูมิน้ำทะเลจ้า</H1>
+    </div>
+    <div id="box2">
+        <canvas id="myChart" style="width: 100%; height: 50%;"></canvas>
+
+    </div>
+    <div id="box3">
+        <p>ข้อมูลรายปี</p>
+        <div class="dropdown is-active">
+            <div class="dropdown-trigger">
+                <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                    <span>Dropdown button</span>
+                    <span class="icon is-small">
+                        <i class="fas fa-angle-down" aria-hidden="true"></i>
+                    </span>
+                </button>
+            </div>
+            <div class="dropdown-menu" id="dropdown-menu" role="menu">
+                <div class="dropdown-content">
+                    <a href="#" class="dropdown-item">
+                        Dropdown item
+                    </a>
+                    <a class="dropdown-item">
+                        Other dropdown item
+                    </a>
+                    <a href="#" class="dropdown-item is-active">
+                        Active dropdown item
+                    </a>
+                    <a href="#" class="dropdown-item">
+                        Other dropdown item
+                    </a>
+                    <hr class="dropdown-divider">
+                    <a href="#" class="dropdown-item">
+                        With a divider
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var SST = [{
+            min: 26.82,
+            max: 33.05,
+            mean: 29.76,
+            year: "2002"
+        },
+        {
+            min: 29.20,
+            max: 34.20,
+            mean: 30.82,
+            year: "2003"
+        },
+        {
+            min: 25.36,
+            max: 34.74,
+            mean: 30.68,
+            year: "2004"
+        },
+        {
+            min: 26.67,
+            max: 34.15,
+            mean: 30.66,
+            year: "2005"
+        },
+        {
+            min: 27.78,
+            max: 37.27,
+            mean: 30.95,
+            year: "2006"
+        },
+        {
+            min: 27.63,
+            max: 33.93,
+            mean: 30.55,
+            year: "2007"
+        },
+
+        ]
+        const test = document.getElementById("myChart")
+        new Chart(test, {
+            type: 'line',
+            data: {
+                labels: SST.year,
+                data: SST.min
+            },
+            options: {
+        scales: {
+            y: {
+                suggestedMin: 25,
+                suggestedMax: 32
+            }
+        }
+    }
+    
+        });
+        // const myChart = new Chart("myChart", {
+        //     type: "line",
+        //     data: {
+        //         labels: "Title",
+        //         data: SST.min
+        //     },
+        //     options: {}
+        // });
+        // const config = {
+        //     type: 'line',
+        //     data: data,
+        // };
+        // const labels = Utils.months({ count: 7 });
+        // const data = {
+        //     labels: labels,
+        //     datasets: [{
+        //         label: 'My First Dataset',
+        //         data: [65, 59, 80, 81, 56, 55, 40],
+        //         fill: false,
+        //         borderColor: 'rgb(75, 192, 192)',
+        //         tension: 0.1
+        //     }]
+        // };
+    </script>
+
+</body>
+
+</html>
